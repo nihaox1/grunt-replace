@@ -1,16 +1,22 @@
 module.exports = function( grunt ){
 	grunt.initConfig( {
-		orgin 	: {
+		replace 	: {
 			one 	: {
 				files 	: {
 					src 	: "dev/*.html",
 					dest 	: "pub/"
 				}
+			},
+			two 	: {
+				files 	: {
+					src 	: "dev/*.html",
+					dest 	: "tmp/"
+				}
 			}
 		}
 	} );
 
-	grunt.loadNpmTasks( "grunt-orgin" );
+	grunt.loadNpmTasks( "grunt-replace" );
 
-	grunt.registerTask( "default" , [ "orgin" ] );
+	grunt.registerTask( "default" , [ "replace" ] );
 };
