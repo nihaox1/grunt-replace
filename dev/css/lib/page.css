@@ -1,5 +1,0 @@
-.c_page_container_parent > .c_page_container {
-  width: 100%;
-  display: none; }
-  .c_page_container_parent > .c_page_container.c_page_active {
-    display: block; }
