@@ -1,0 +1,7 @@
+@mixin transition( $input ){
+	-webkit-transition : $input;
+	 -opera-transition : $input;
+	   -moz-transition : $input;
+	    -ms-transition : $input;
+    	    transition : $input;
+};

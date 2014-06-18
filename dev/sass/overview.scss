@@ -1,0 +1,40 @@
+@import "comm.scss";
+.overview{
+	padding 		: 15px; 
+	ul.nav{
+		li{
+			font-size 	: 16px;
+			font-family : "sans-serif";
+			cursor 		: pointer; 
+			@include transition( 2s all ease );
+		};
+	};
+	ul.docMenu{
+		width 			: 100%;
+		height 			: 0px; 
+		padding-left 	: 25px;  
+		padding-top 	: 5px; 
+		overflow 		: hidden; 
+		li{
+			width 		: 100%; 
+			padding 	: 0px 10px;
+			overflow 	: hidden;  
+			list-style 	: dott;
+			font-size 	: 12px; 
+			&:hover{
+				a{
+					color 	: #333;
+				};
+			};
+			a{
+				width 			: 100%; 
+				line-height 	: 30px;
+				display 		: block; 
+				color 			: #999;  
+			};
+		};
+	};
+	.active ul.docMenu{
+		height 		: auto; 
+	};
+};
