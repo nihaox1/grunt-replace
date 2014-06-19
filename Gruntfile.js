@@ -3,8 +3,7 @@ module.exports = function( grunt ){
 		replace 	: {
 			one 	: {
 				files 	: {
-					src_dir 	: "dev/",
-					pub_dir 	: "pub/"
+					"pub/" 	: "dev/"
 				}
 			}
 		}
