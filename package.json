@@ -1,0 +1,25 @@
+{
+    "name"            : "grunt-creplace",
+    "description"     : "Copy files and folders.",
+    "version"         : "0.1.2",
+    "homepage"        : "https://github.com/nihaox1/grunt-replace.git",
+    "author"          : {
+        "name"  : "Bo.Cheng",
+        "url"   : "http://cityooh.com"
+    },
+    "repository": {
+        "type"  : "git",
+        "url"   : "https://github.com/nihaox1/grunt-replace.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nihaox1/grunt-replace/issues"
+    },
+    "engines": {
+        "node": ">= 0.10.0"
+    },
+    "dependencies": {
+        "grunt"         : "^0.4.0",
+        "uglify-js"     : "^2.4.15",
+        "clean-css"     : "^2.2.1"
+    }
+}
