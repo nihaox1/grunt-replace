@@ -1,4 +1,4 @@
-#grunt-contrib-creplace
+#grunt-creplace
 
 > Auto concat & compress & md5 fileName for your static files
 
