@@ -327,29 +327,36 @@ tool = {
 		var _url = function( url ){
 				return config.dir.pub_dir + url.replace( /^[^\\|\/]*[\/|\\]/gi , "" )
 			} ,
-			_buffer;
-		// 	config.resources 放在后面会出现 config.resources被清空的清空
-		for( var a in config.resources ){
-			grunt.file.copy( a , config.dir.pub_dir + config.resources[ a ] );
-		}
-		//	foreach 配合使用 uglifyjs 是个坑  会造成foreach值的丢失  这里先使用copy进行复制
-		// 	后续可以使用foreach读取值的文件 再进行 压缩处理    这个后续优化 
-		for( var a in config.file_path.js ){
+			_buffer,
+			a;
+		
+		for( a in config.file_path.js ){
 			grunt.file.copy( a , _url( a ) );
 		}
-		for( var a in config.file_path.js ){
-			_buffer 	= minjs.minify( a ).code.toString();
-			grunt.file.write( _url( a ) , _buffer );
+		for( a in config.file_path.js ){
+			try{
+				_buffer 	= minjs.minify( a ).code.toString();
+				grunt.file.write( _url( a ) , _buffer );
+			} catch( e ){
+				E( a + " has error!" );
+			}
 			_buffer 	= null;
 		}
-		for( var a in config.file_path.css ){
-			_buffer 	= new mincss( config.mincss ).minify( grunt.file.read( a ) );
-			grunt.file.write( _url( a ) , _buffer );
+		for( a in config.file_path.css ){
+			try{
+				_buffer 	= new mincss( config.mincss ).minify( grunt.file.read( a ) );
+				grunt.file.write( _url( a ) , _buffer );
+			} catch( e ){
+				E( a + " has error!" );
+			}
 			_buffer 	= null;
-		};
+		}
 		for( var i = config.file_path.others.length; i--; ){
 			grunt.file.copy( config.file_path.others[ i ] , _url( config.file_path.others[ i ] ) );
-		};
+		}
+		for( a in config.resources ){
+			grunt.file.copy( a , config.dir.pub_dir + config.resources[ a ] );
+		}
 	},
 	del_file_from_hash : function( url ){
 		if( config.file_path.js[ url ] ){
