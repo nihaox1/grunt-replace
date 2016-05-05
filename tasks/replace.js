@@ -308,9 +308,9 @@ tool = {
 	checkFileStatus : function( filePath , func ){
 		var _isIgnore = false,
 			_exists;
-		if( /\.[com|cn|net|org]/.test( filePath ) ){
+		if( /\.(com|cn|net|org)/.test( filePath ) ){
 			for( var i = config.ignoreUrl.length; i--; ){
-				if( config.ignoreUrl[ i ].test( filePath ) ){
+				if( config.ignoreUrl[ i ] && config.ignoreUrl[ i ].test && config.ignoreUrl[ i ].test( filePath ) ){
 					_isIgnore = true;
 					filePath = filePath.replace( config.ignoreUrl[ i ] , "$1" );
 					break;
@@ -479,7 +479,7 @@ tool = {
 	get_file_ts : function( filePath ){
 		var _ts = ( /\?/.test( filePath ) ? "&" : "?" ) + tool.getRandMd5();
 		for( var i = config.ignoreTsUrl.length; i--; ){
-			if( config.ignoreTsUrl[ i ].test( filePath ) ){
+			if( config.ignoreTsUrl[ i ] && config.ignoreTsUrl[ i ].test( filePath ) ){
 				_ts = "";
 				break;
 			}
